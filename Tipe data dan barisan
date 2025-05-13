@@ -30,8 +30,10 @@ my_set[0] = 1 #Error
 print(my_set) #Output: {2,3,4,5}
 
 #Mapping/dictionary
-person = {'nama':"Theo Lau", "pekerjaan":"Data Analyst"}
-print(person["nama"]) #Output: Theo Lau
-print(person["pekerjaan"]) #Output: Data Analyst
+person = {'nama':'John Doe', 'pekerjaan':'Programmer'}
+print(person['nama']) #Output: Jhon Doe
+print(person['pekerjaan']) #Output: Programmer
+
+
 
 

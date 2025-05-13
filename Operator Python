@@ -1,1 +1,64 @@
-Arithmetic Operators
+##Arithmetic Operators
+
++ = Penjumlahan
+- = pengurangan
+/ = pembagian
+* = perkalian
+% = modulo/sisa bagi
+** = pangkat
+// = pembagian yng dibuletin kebawah (3/2=1,5 dibuletin jadi 1)
+
+
+##Comparison Operators
+== -> pesamaan, 33==33 TRUE, 34==33 FALSE
+!= -> pertidaksamaan, 33!=33 FALSE, 34!=33 TRUE
+> -> lebih besar dari
+< -> lebih kecil dari
+>= -> lebih besar dari sama dengan
+<= -> lebih kecil dari sama dengan
+
+
+##Logical Operators
+
+#and
+x = 5
+x >= 1 and x <= 10
+akan mengembalikan nilai True
+
+x = 5
+x >= 1 and x <= 4
+akan mengembalikan nilai False
+
+#or
+x = 3
+x >= 1 or x <= 2
+akan mengembalikan nilai True dikarenakan statemen logika pertama terpenuhi
+
+x = 3
+x >= 5 or x <= 0
+akan mengembalikan nilai False dikarenakan kedua statemen logika tidak terpenuhi (bernilai False)
+
+#not
+x = 7
+not(x == 7) akan mengembalikan nilai False
+not(x >= 10) akan mengembalikan nilai True
+
+
+
+##identify operators
+
+#is
+x = ["Ani", "Budi"]
+y = ["Ani", "Budi"]
+a = x
+print(a is x) akan menampilkan nilai True dikarenakan a dan x merujuk ke objek yang sama
+print(a is y) akan menampilkan nilai False dikarenakan a dan y tidak merujuk ke objek yang sama meskipun isi 
+di dalam keduanya sama.
+
+#is not
+x = ["Ani", "Budi"]
+y = ["Ani", "Budi"]
+a = x
+print(a is not x) akan menampilkan nilai False dikarenakan a dan x merujuk ke objek yang sama
+print(a is not y) akan menampilkan nilai   True dikarenakan a dan y tidak merujuk ke objek yang sama
+

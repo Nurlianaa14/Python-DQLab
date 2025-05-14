@@ -1,0 +1,56 @@
+##List Manipulation 
+append()  = Menambahkan data sebagai elemen terakhir di list
+clear()   = Menghapus seluruh elemen dalam sebuah list
+copy()    = Mengembalikan copy dari setiap elemen dalam list
+count()   = Mengembalikan jumlah kemunculan suatu elemen pada list
+extend()  = Menggabungkan dua buah list seperti penggunaan operator + untuk list
+index()   = Mengembalikan indeks dari elemen pertama yang ditemukan dari awal sebuah list
+insert()  = Menyisipkan elemen pada indeks yang dispesifikasikan
+pop()     = Menghilangkan elemen pada posisi tertentu
+remove()  = Menghilangkan elemen dengan nilai tertentu
+reverse() = Membalik urutan elemen dari sebuah list
+sort()    = Mengurutkan elemen pada sebuah list, secara default dengan urutan dari kecil ke besar (ascending).
+sort(reverse=True) = Melakukan proses pengurutan dari besar ke kecil (descending)
+
+
+##Tuple Manipulation
+count() = Mengembalikan jumlah kemunculan suatu elemen pada tuple
+index() = Mengembalikan indeks dari elemen pertama yang ditemukan dari awal sebuah tuple
+
+
+##Set Manipulation
+add()          = Menambahkan data ke dalam set. Penting untuk kita ingat bahwa pada tipe data set tidak mengizinkan adanya duplikasi elemen di dalamnya.
+clear()        = Menghapus seluruh elemen dalam sebuah set
+copy()         = Mengembalikan copy dari setiap elemen dalam set
+update()       = Menambahkan elemen dari suatu set dengan set lainnya
+pop()          = Menghilangkan elemen dari sebuah set secara acak
+remove()       = Menghilangkan elemen dengan nilai tertentu
+union()        = Mengembalikan hasil penggabungan (union) dari dua buah set
+isdisjoint()   = Mengembalikan nilai kebenaran apakah suatu set disjoint (saling lepas/tidak mengandung elemen yang sama) dengan set lainnya
+issubset()     = Mengembalikan nilai kebenaran apakah sebuah set merupakan subset dari set lainnya. Sebuah set A merupakan subset dari set B jika
+                 seluruh elemen dari set A merupakan bagian dari set B
+issuperset()   = Mengembalikan nilai kebenaran apakah sebuah set merupakan superset dari set lainnya. Sebuah set A merupakan superset dari set B 
+                 jika seluruh elemen dari set B terkandung dalam set A
+intersection() = Mengembalikan sebuah set yang merupakan intersection dari dua set lainnya
+difference()	 = Mengembalikan sebuah set yang berisikan difference dari dua set lainnya. Difference dari sebuah set A berdasarkan set B adalah 
+                 setiap elemen yang terdapat di set A tetapi tidak terdapat di set B
+symmetric_difference() = Mengembalikan sebuah set yang berisikan symmetric difference dari dua set lainnya. Symmetric difference dari sebuah set A 
+                         dan B adalah setiap elemen dari set A yang tidak terdapat di set B digabungkan dengan (union) setiap elemen dari set B yang
+                         tidak terdapat di set A
+
+
+##Dictionary Manipulation
+clear()  = Menghapus seluruh elemen dalam sebuah dictionary
+copy()   = Mengembalikan copy dari setiap elemen dalam set. Serupa dengan fitur copy() pada tipe data collections lainnya, fitur copy() tidak akan
+           mengubah nilai dari elemen asal seperti fungsi assignment
+keys()	 = Mengembalikan list dari seluruh kunci akses ("key") dari setiap elemen dalam sebuah dictionary
+values() = Mengembalikan list dari seluruh nilai ("value") dari setiap elemen dalam sebuah dictionary
+update() = Menambahkan kunci akses ("key") dan nilai baru ("value") ke dalam sebuah dictionary
+
+
+!!Trick kalau mau ubah list ke set tinggal set(list_buah), kalau mau ubah ke list lagi ya list(set_buah)
+
+
+
+
+

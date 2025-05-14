@@ -50,7 +50,19 @@ update() = Menambahkan kunci akses ("key") dan nilai baru ("value") ke dalam seb
 
 !!Trick kalau mau ubah list ke set tinggal set(list_buah), kalau mau ubah ke list lagi ya list(set_buah)
 
+##String manipulation
+Operator + pada dua string akan secara otomatis menggabungkan kedua string tersebut. Juga dapat digunakan untuk menambahkan beberapa string secara bersamaan.
 
-
-
-
+strip()	     = Menghilangkan kelebihan spasi pada awal dan akhir string
+lstrip()     = Menghilangkan kelebihan spasi pada awal string
+rstrip()     = Menghilangkan kelebihan spasi pada akhir string
+capitalize() = Mengubah elemen pertama dari string menjadi huruf kapital
+lower()      = Mengubah seluruh huruf dalam teks (string) menjadi huruf kecil
+upper()      = Mengubah seluruh huruf dalam teks (string) menjadi huruf besar
+split()      = Memecah sebuah string berdasarkan string lainnya ke dalam sebuah list
+join()       = Menggabungkan sebuah list yang berisikan string berdasarkan sebuah string yang telah didefinisikan
+replace()    = Menggantikan kemunculan suatu string tertentu dengan string lainnya dalam sebuah string
+find()       = Mengembalikan posisi dari sebuah teks (sub-string) lainnya dalam sebuah string
+count()      = Menghitung jumlah kemunculan sebuah teks (string) lainnya dalam suatu string (string yang dicari bersifat case sensitive)
+startswith() = Mengembalikan nilai kebenaran True ketika sebuah teks (string) diawali dengan sebuah teks lainnya
+endswith()   = Mengembalikan nilai kebenaran True ketika sebuah teks (string) diakhiri dengan sebuah teks lainnya

@@ -66,3 +66,4 @@ find()       = Mengembalikan posisi dari sebuah teks (sub-string) lainnya dalam 
 count()      = Menghitung jumlah kemunculan sebuah teks (string) lainnya dalam suatu string (string yang dicari bersifat case sensitive)
 startswith() = Mengembalikan nilai kebenaran True ketika sebuah teks (string) diawali dengan sebuah teks lainnya
 endswith()   = Mengembalikan nilai kebenaran True ketika sebuah teks (string) diakhiri dengan sebuah teks lainnya
+

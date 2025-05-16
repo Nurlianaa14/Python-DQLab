@@ -1,1 +1,32 @@
 #Membaca file dari local komputer
+file = open("hello.txt", "r")
+
+r = read, mengartikan bahwa file yang akan dibuka berada dalam mode “read” sehingga nantinya aku tidak dapat menambahkan/ menuliskan ulang isi tulisan dari file "hello.txt"
+w = write, mode ini dapat aku gunakan untuk menulis ke dalam sebuah berkas teks. Jika berkas tidak tersedia, maka Python akan secara otomatis membuat sebuah berkas baru 
+    dengan nama yang telah di spesifikasikan. Saat menulis dengan menggunakan mode ini, jika file semula tidak kosong, maka isi yang sebelumnya terdapat di dalam berkas 
+    akan terhapus.
+a = append, mode ini dapat aku gunakan untuk menambahkan isi dari sebuah berkas teks. Mode ini juga akan membuat sebuah berkas teks baru dengan nama yang telah kita
+    spesifikasikan jika berkas teks tidak tersedia.
+w+ = write+, mode ini dapat aku gunakan untuk membaca ataupun menuliskan isi dari sebuah berkas teks.
+a+ = append+, mode ini dapat aku gunakan untuk membaca ataupun menambahkan isi dari sebuah berkas teks.
+
+
+#Membaca file dari url
+import requests
+url = "https://storage.googleapis.com/dqlab-dataset/hello.txt"
+response = requests.get(url)
+
+readline() = untuk membaca isi dari file secara tersedia dalam berkas “hello.txt” baris per baris
+Output : Kita sedang belajar Python
+         Tepatnya belajar memanipulasi berkas teks
+         Memanipulasi berkas dengan Python sangatlah mudah!
+
+readlines() = untuk mengembalikan sebuah list yang setiap elemennya merupakan setiap baris dalam sebuah berkas teks
+Output : [“Kita sedang belajar Python”, “Tepatnya belajar memanipulasi berkas teks”, 
+“Memanipulasi berkas dengan Python sangatlah mudah!”]
+
+Jika open() menggunakan mode w, maka Python akan menghapus seluruh isi dalam berkas sebelum menuliskan konten (mempengaruhi bagaimana Python menuliskan isi 
+ke dalam berkas teks)
+
+Jika open() menggunakan mode a, Python tidak akan menghapus isi dalam berkas dan hanya akan menambahkan konten
+

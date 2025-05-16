@@ -1,0 +1,10 @@
+#Library math
+math.ceil()	      = Menerima input berupa bilangan dan mengembalikan pembulatan ke atas untuk bilangan input
+math.floor()      = Menerima input berupa bilangan dan mengembalikan hasil pembulatan ke bawah untuk bilangan input
+math.fabs()       = Menerima input berupa bilangan dan mengembalikan hasil absolut dari bilangan input
+math.factorial()  = Menerima input berupa bilangan dan mengembalikan hasil faktorial dari bilangan input
+math.fsum()       = Menerima input berupa tipe data collection (tuple, list, etc.) dan mengembalikan hasil penjumlahan setiap elemennya
+math.log()	      = Menerima input berupa dua buah bilangan (asumsikan x dan y) dan mengembalikan sebuah bilangan (z) di mana z merupakan hasil 
+                    log basis y dari x (atau dengan kata lain x merupakan hasil pemangkatan dari z terhadap y)
+math.sqrt()	      = Menerima input berupa sebuah bilangan dan mengembalikan hasil akar pangkat dua (akar kuadrat) dari bilangan tersebut
+math.copysign()	  = Menerima input berupa dua buah bilangan dan mengembalikan bilangan pertama sesuai dengan tanda yang dimiliki oleh bilangan kedua

@@ -1,0 +1,141 @@
+import pandas as pd
+import numpy as np
+
+Series: satu kolom bagian dari tabel dataframe yang merupakan 1 dimensional numpy array sebagai basis datanya, terdiri dari 1 tipe data (integer, string, float, dll).
+DataFrame: gabungan dari Series, berbentuk rectangular data yang merupakan tabel spreadsheet itu sendiri (karena dibentuk dari banyak Series, tiap Series biasanya punya
+1 tipe data, yang artinya 1 dataframe bisa memiliki banyak tipe data).
+
+# Series
+number_list = pd.Series([1,2,3,4,5,6])
+# DataFrame
+matrix_list = pd.DataFrame([[1,2,3],
+				                    ['a','b','c'],
+				                    [3,4,5],
+				                    ['d',4,6]])
+
+.info() digunakan untuk mengecek kolom apa yang membentuk dataframe itu, data types, berapa yang non null, dll. 
+
+.shape digunakan untuk mengetahui berapa baris dan kolom, hasilnya dalam format tuple (baris, kolom).
+
+.dtypes digunakan untuk mengetahui tipe data di tiap kolom. Tipe data object: kombinasi untuk berbagai tipe data (number & text, etc).
+
+.astype(nama_tipe_data) untuk convert tipe data berdasarkan tipe data seperti: float, int, str, numpy.float, numpy.int ataupun numpy.datetime.
+
+.copy() digunakan melakukan duplikat, untuk disimpan di variable yang berbeda mungkin supaya tidak loading data lagi.
+
+.to_list() digunakan untuk mengubah series menjadi list dan tidak dapat digunakan untuk dataframe.
+
+.unique() digunakan menghasilkan nilai unik dari suatu kolom, hasilnya dalam bentuk numpy array. Attribute ini hanya digunakan pada series saja.
+
+.index digunakan untuk mencari index/key dari Series atau Dataframe.
+
+.columns digunakan untuk mengetahui apa saja kolom yang tersedia di dataframe tersebut (hanya digunakan untuk dataframe saja). 
+
+#Penggunaan .loc dan .iloc
+import pandas as pd
+
+# Membuat DataFrame
+data = {'kolomA': [1, 2, 3],
+        'kolomB': [4, 5, 6],
+        'kolomC': [7, 8, 9]}
+df = pd.DataFrame(data, index=['baris1', 'baris2', 'baris3'])
+
+# Menggunakan loc
+print("Menggunakan loc:")
+print(df.loc['baris2', 'kolomA'])  # Akses satu nilai
+print(df.loc[['baris1', 'baris3'], ['kolomB', 'kolomC']])  # Akses beberapa baris dan kolom
+print(df.loc['baris1':'baris2', 'kolomA':'kolomC'])  # Akses rentang baris dan kolom
+
+# Menggunakan iloc
+print("\nMenggunakan iloc:")
+print(df.iloc[1, 0])  # Akses satu nilai (indeks 1 baris, 0 kolom)
+print(df.iloc[[0, 2], [1, 2]])  # Akses beberapa baris dan kolom
+print(df.iloc[0:2, 0:3])  # Akses rentang baris dan kolom
+
+import pandas as pd
+# Creating series from list
+ex_list = ['a',1,3,5,'c','d']
+ex_series = pd.Series(ex_list)
+print(ex_series)
+# Creating dataframe from list of list
+ex_list_of_list = [[1,'a','b','c'],
+                   [2.5,'d','e','f'],
+		           [5, 'g','h','i'],
+		           [7.5,'j',10.5,'l']]
+index = ['dq','lab','kar','lan']
+cols = ['float','char','obj','char']
+ex_df = pd.DataFrame(ex_list_of_list, index=index, columns=cols)
+print(ex_df)
+
+In [1]: import pandas as pd
+        # Creating series from dictionary
+        dict_series = {'1':'a',
+        			   '2':'b',
+        			   '3':'c'}
+        ex_series = pd.Series(dict_series)
+        print(ex_series)
+        # Creating dataframe from dictionary
+        df_series = {1:['a','b','c'],
+                     2:['b','c','d'],
+                     4:[2,3,'z']}
+        ex_df = pd.DataFrame(df_series)
+        print(ex_df)
+
+1    a
+2    b
+3    c
+dtype: object
+   1  2  4
+0  a  b  2
+1  b  c  3
+2  c  d  z
+
+In [1]: import pandas as pd
+        import numpy as np
+        # Creating series from numpy array (1D)
+        arr_series = np.array([1,2,3,4,5,6,6,7])
+        ex_series = pd.Series(arr_series)
+        print(ex_series)
+        # Creating dataframe from numpy array (2D)
+        arr_df = np.array([[1,2,3,5],
+                           [5,6,7,8],
+                           ['a','b','c',10]])
+        ex_df = pd.DataFrame(arr_df)
+        print(ex_df)
+
+0    1
+1    2
+2    3
+3    4
+4    5
+5    6
+6    6
+7    7
+dtype: int64
+   0  1  2   3
+0  1  2  3   5
+1  5  6  7   8
+2  a  b  c  10
+ 
+
+### DATASET I/O
+
+import pandas as pd
+# File CSV
+df_csv = pd.read_csv("https://storage.googleapis.com/dqlab-dataset/sample_csv.csv")
+print(df_csv.head(3)) # Menampilkan 3 data teratas
+
+# File TSV
+df_tsv = pd.read_csv("https://storage.googleapis.com/dqlab-dataset/sample_tsv.tsv", sep='\t')
+print(df_tsv.head(3)) # Menampilkan 3 data teratas
+
+# File xlsx dengan data di sheet "test"
+df_excel = pd.read_excel("https://storage.googleapis.com/dqlab-dataset/sample_excel.xlsx", sheet_name="test")
+print(df_excel.head(4)) # Menampilkan 4 data teratas
+
+# File JSON
+url ="https://storage.googleapis.com/dqlab-dataset/covid2019-api-herokuapp-v2.json"
+df_json = pd.read_json(url)
+print(df_json.head(10)) # Menampilkan 10 data teratas
+
+

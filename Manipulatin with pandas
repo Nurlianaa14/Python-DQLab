@@ -139,3 +139,104 @@ df_json = pd.read_json(url)
 print(df_json.head(10)) # Menampilkan 10 data teratas
 
 
+###Indexing
+
+##
+import pandas as pd
+        # Baca file TSV sample_tsv.tsv
+        df = pd.read_csv("https://storage.googleapis.com/dqlab-dataset/sample_tsv.tsv", sep="\t" )
+        # Index dari df
+        print("Index:", df.index)
+        # Column dari df
+        print("Columns:", df.columns)
+
+Index: RangeIndex(start=0, stop=101, step=1)
+Columns: Index(['order_id', 'order_date', 'customer_id', 'city', 'province',
+       'product_id', 'brand', 'quantity', 'item_price'],
+      dtype='object')
+
+## Multi index
+import pandas as pd
+# Baca file TSV sample_tsv.tsv
+df = pd.read_csv( "https://storage.googleapis.com/dqlab-dataset/sample_tsv.tsv", sep="\t")
+# Set multi index df
+df_x = df.set_index(["order_date", "city", "customer_id"])
+# Print nama dan level dari multi index
+for name, level in zip(df_x.index.names, df_x.index.levels):
+        print(name,':',level)
+
+order_date : Index(['2019-01-01'], dtype='object', name='order_date')
+city : Index(['Bogor', 'Jakarta Pusat', 'Jakarta Selatan', 'Jakarta Utara',
+       'Makassar', 'Malang', 'Surabaya', 'Tangerang'],
+      dtype='object', name='city')
+customer_id : Int64Index([12681, 13963, 15649, 17091, 17228, 17450, 17470, 17511, 17616,
+            18055],
+           dtype='int64', name='customer_id')
+
+##
+import pandas as pd
+# Baca file sample_tsv.tsv untuk 10 baris pertama saja
+df = pd.read_csv("https://storage.googleapis.com/dqlab-dataset/sample_tsv.tsv", sep="\t", nrows=10)
+# Cetak data frame awal
+print("Dataframe awal:\n", df)
+# Set index baru
+df.index = ["Pesanan ke-" + str(i) for i in range(1, 11)]
+# Cetak data frame dengan index baru
+print("Dataframe dengan index baru:\n", df)
+
+Dataframe awal:
+    order_id  order_date  customer_id  ...    brand quantity item_price
+0   1612339  2019-01-01        18055  ...  BRAND_C        4    1934000
+1   1612339  2019-01-01        18055  ...  BRAND_V        8     604000
+2   1612339  2019-01-01        18055  ...  BRAND_G       12     747000
+3   1612339  2019-01-01        18055  ...  BRAND_B       12     450000
+4   1612339  2019-01-01        18055  ...  BRAND_G        3    1500000
+5   1612339  2019-01-01        18055  ...  BRAND_V        3    2095000
+6   1612339  2019-01-01        18055  ...  BRAND_H        3    2095000
+7   1612339  2019-01-01        18055  ...  BRAND_S        3    1745000
+8   1612339  2019-01-01        18055  ...  BRAND_F        6    1045000
+9   1612339  2019-01-01        18055  ...  BRAND_P        6    1045000
+
+[10 rows x 9 columns]
+Dataframe dengan index baru:
+                order_id  order_date  customer_id  ...    brand quantity item_price
+Pesanan ke-1    1612339  2019-01-01        18055  ...  BRAND_C        4    1934000
+Pesanan ke-2    1612339  2019-01-01        18055  ...  BRAND_V        8     604000
+Pesanan ke-3    1612339  2019-01-01        18055  ...  BRAND_G       12     747000
+Pesanan ke-4    1612339  2019-01-01        18055  ...  BRAND_B       12     450000
+Pesanan ke-5    1612339  2019-01-01        18055  ...  BRAND_G        3    1500000
+Pesanan ke-6    1612339  2019-01-01        18055  ...  BRAND_V        3    2095000
+Pesanan ke-7    1612339  2019-01-01        18055  ...  BRAND_H        3    2095000
+Pesanan ke-8    1612339  2019-01-01        18055  ...  BRAND_S        3    1745000
+Pesanan ke-9    1612339  2019-01-01        18055  ...  BRAND_F        6    1045000
+Pesanan ke-10   1612339  2019-01-01        18055  ...  BRAND_P        6    1045000
+
+[10 rows x 9 columns]
+
+
+##
+import pandas as pd
+# Baca file sample_tsv.tsv dan set lah index_col sesuai instruksi
+df = pd.read_csv("https://storage.googleapis.com/dqlab-dataset/sample_tsv.tsv", sep="\t", index_col=["order_date", "order_id"])
+# Cetak data frame untuk 8 data teratas
+print("Dataframe:\n", df.head(8))
+
+Dataframe:
+                      customer_id             city  ... quantity item_price
+order_date order_id                                ...                    
+2019-01-01 1612339         18055  Jakarta Selatan  ...        4    1934000
+           1612339         18055  Jakarta Selatan  ...        8     604000
+           1612339         18055  Jakarta Selatan  ...       12     747000
+           1612339         18055  Jakarta Selatan  ...       12     450000
+           1612339         18055  Jakarta Selatan  ...        3    1500000
+           1612339         18055  Jakarta Selatan  ...        3    2095000
+           1612339         18055  Jakarta Selatan  ...        3    2095000
+           1612339         18055  Jakarta Selatan  ...        3    1745000
+
+[8 rows x 7 columns]
+
+
+###SLicing
+slicing adalah cara untuk melakukan filter ke dataframe/series berdasarkan kriteria tertentu dari nilai kolomnya ataupun kriteria index-nya.
+dengan 2 cara pake loc atau iloc
+

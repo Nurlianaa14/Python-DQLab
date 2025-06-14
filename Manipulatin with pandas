@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 
+https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html
+
 Series: satu kolom bagian dari tabel dataframe yang merupakan 1 dimensional numpy array sebagai basis datanya, terdiri dari 1 tipe data (integer, string, float, dll).
 DataFrame: gabungan dari Series, berbentuk rectangular data yang merupakan tabel spreadsheet itu sendiri (karena dibentuk dari banyak Series, tiap Series biasanya punya
 1 tipe data, yang artinya 1 dataframe bisa memiliki banyak tipe data).
@@ -374,3 +376,53 @@ Kolom brand setelah map:
 3    b
 4    g
 Name: brand, dtype: object
+
+##
+map()
+Digunakan untuk: Series saja (1 dimensi)
+Fungsi: Menerapkan fungsi ke setiap elemen
+Cocok untuk: Transformasi nilai dalam satu kolom
+
+import pandas as pd
+
+s = pd.Series([1, 2, 3])
+s.map(lambda x: x + 10)
+# Output: 11, 12, 13
+
+apply()
+Digunakan untuk: Series dan DataFrame
+Series: seperti map(), ke tiap elemen
+DataFrame: ke setiap kolom atau baris (bisa pilih axis)
+Fungsi: Bisa agregasi (misal: sum, mean, dll)
+
+Contoh pada Series:
+s.apply(lambda x: x**2)
+# Output: 1, 4, 9
+
+Contoh pada DataFrame:
+df = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
+df.apply(sum)  # Menjumlahkan tiap kolom
+# Output: A: 3, B: 7
+
+applymap()
+Digunakan untuk: DataFrame saja (2 dimensi)
+Fungsi: Menerapkan fungsi ke setiap elemen
+Cocok untuk: Format seluruh isi DataFrame
+
+# Tambah 100 ke tiap elemen DataFrame
+print(df.applymap(lambda x: x + 100))
+Output:
+     A    B
+0  101  103
+1  102  104
+
+
+###Inspeksi Missing Value
+
+Di pandas data yang hilang umumnya direpresentasikan dengan NaN.
+Langkah pertama, harus tahu kolom mana yang terdapat data hilang dan berapa banyak dengan cara:
+Cara 1: menerapkan method .info() pada dataframe
+Cara 2: mengetahui berapa banyak nilai hilang dari tiap kolom di dataset tersebut dengan menerapkan chaining method pada dataframe yaitu .isna().sum(). 
+        Method .isna() digunakan untuk mengecek berapa data yang bernilai NaN dan .sum() menjumlahkannya secara default untuk masing-masing kolom dataframe.
+
+

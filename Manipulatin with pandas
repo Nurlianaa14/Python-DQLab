@@ -356,21 +356,21 @@ df["brand"] = df["brand"].map(lambda x: x[-1])
 print("Kolom brand setelah map:\n", df["brand"].head())
 
 Kolom brand awal:
- 0    BRAND_C
+0    BRAND_C
 1    BRAND_V
 2    BRAND_G
 3    BRAND_B
 4    BRAND_G
 Name: brand, dtype: object
 Kolom brand setelah apply:
- 0    brand_c
+0    brand_c
 1    brand_v
 2    brand_g
 3    brand_b
 4    brand_g
 Name: brand, dtype: object
 Kolom brand setelah map:
- 0    c
+0    c
 1    v
 2    g
 3    b
@@ -503,6 +503,51 @@ Unique value setelah fillna:
 -Mean jika distribusi data normal (tidak ada outliers), kondisi nilai mean dan median hampir sama nilainya
 -Median jika data memiliki outliers atau distribusi skewed, kondisi nilai mean dan median jauh
 
+import pandas as pd
+import numpy as np
+
+# Buat dataframe sederhana
+df = pd.DataFrame({
+    'active': [10, 20, np.nan, 30, 40, np.nan, 50]
+})
+
+# Tampilkan isi awal dataframe
+print("Data awal:")
+print(df)
+output:
+   active
+0    10.0
+1    20.0
+2     NaN
+3    30.0
+4    40.0
+5     NaN
+6    50.0
+
+print("Awal: mean = %f, median = %f" % (df["active"].mean(), df["active"].median()))
+#Mean awal = (10 + 20 + 30 + 40 + 50)/5 = 30.0
+#Median awal = 30.0
+
+Isi Missing Value dengan Median
+
+df_median = df["active"].fillna(df["active"].median())
+print("Setelah fillna median: mean = %f, median = %f" % (df_median.mean(), df_median.median()))
+
+NaN diisi dengan 30.0 (median)
+Nilai jadi: [10, 20, 30, 30, 40, 30, 50]
+Mean baru = (10+20+30+30+40+30+50)/7 = 30.0
+Median baru = 30.0
+
+Isi Missing Value dengan Mean
+
+df_mean = df["active"].fillna(df["active"].mean())
+print("Setelah fillna mean: mean = %f, median = %f" % (df_mean.mean(), df_mean.median()))
+
+Mean awal = 30.0
+Jadi, NaN diisi dengan 30.0 juga
+Hasil sama seperti pakai median di contoh ini
+
+
 ##kalo pake interpolasi
 
 	import numpy as np
@@ -530,7 +575,7 @@ Unique value setelah fillna:
         print("Setelah diisi missing valuenya:\n", ts)
 
 Setelah diisi missing valuenya:
- 2020-01-01     9.0
+2020-01-01     9.0
 2020-01-02    14.0
 2020-01-05    19.0
 2020-01-07    24.0
